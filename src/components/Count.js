@@ -2,19 +2,33 @@ import React, {useState} from 'react'
 
 function Count() {
     const [count, setCount] = useState(0);
-    if (count < 0) {
-        alert("Nilai tidak boleh negatif!");
+
+    function addNumber(){
+        setCount(count+1);
     }
+
+    function substactNumber(){
+        if (count === 0) {
+            alert("Nilai tidak boleh negatif!");
+         } else{
+                setCount(count-1);
+            }
+    }
+    
+    function resetNumber(){
+        setCount(0);
+    }
+    
     return (
-        <>
+        
         <div>
             <p> Count : {count}</p>
-            <button onClick={() => setCount(count + 1)}>+</button>
-            <button onClick={() => setCount(count - 1)}>-</button>
-            <button onClick={() => setCount(0)}>Reset</button>
+            <button onClick={addNumber}>+</button>
+            <button onClick={substactNumber}>-</button>
+            <button onClick={resetNumber}>Reset</button>
         </div>
          
-     </>
+     
     )
 }
 
